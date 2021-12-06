@@ -1,0 +1,43 @@
+<div class="">
+    <div class="header">
+        <div class="input-desc">
+            <input matInput placeholder="Plan açıklamasını buraya giriniz" #planDesc >
+        </div>
+        <div class="input-date">
+            <input matInput
+            min="{{todayNow | date:'yyyy-MM-dd'}}"
+            type="date" #planDate>
+        </div>
+        <div class="input-btn">
+            <button class="btn" type="submit" (click)="planAdd(planDesc,planDate)">EKLE</button>
+        </div>
+    </div>
+</div>
+  <div class="mt-3">
+    <div class="section-plan-lists">
+        <div class="plan-list">
+            <div class="card">
+                <h1>Bugün</h1>
+                <ul class="list-group" *ngFor="let item of todayPlan">
+                    <li class="list-group-item">{{ item.desc }}</li>                
+                </ul>
+            </div>
+        </div>
+        <div class="plan-list">
+            <div class="card">
+                <h1>Yarın</h1>
+                <ul class="list-group" *ngFor="let item of tomorrowPlan">
+                    <li class="list-group-item">{{ item.desc }}</li>                
+                </ul>
+            </div>
+        </div>
+        <div class="plan-list">
+            <div class="card">
+                <h1>Önümüzdeki Hafta</h1>
+                <ul class="list-group" *ngFor="let item of weekPlan">
+                    <li class="list-group-item">{{ item.desc }}</li>                
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
